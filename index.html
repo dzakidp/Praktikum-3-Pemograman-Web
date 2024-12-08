@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Teori</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container-fluid {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 150vh;
+            overflow-y: auto;
+            border-right: 3px solid black;
+            padding: 20px;
+            background-color: #e3f2fd;
+        }
+        
+        .sidebar .nav-link {
+            color: #212529;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: #bbdefb;
+            color: #0d47a1;
+            border-radius: 5px;
+        }
+
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .centered-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="sidebar">
+            <h5 class="text-center">Daftar Soal</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark" onclick="showContent('home')">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark" onclick="showContent('content1')">Penjelasan Konsep Dasar PHP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark" onclick="showContent('content2')">Perbandingan GET dan POST</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark" onclick="showContent('content3')">Penggunaan include, require, dan koneksi PHP dengan MySQL</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <h1 class="text-center">LAPORAN TEORI</h1>
+            <h2 class="centered-text">Dzaki Devsi Pratama <span class="mx-2">|</span> 202331014</h2>
+            <div class="horizontal-line"></div>
+            <div id="home">
+                <h3 class="text-center mt-4">Materi Laporan Teori 3 dan 4</h3>
+                <h3 class="text-center">Pemrograman Web</h3>
+                <p class="text-center">Kelas    : D</p>
+                <p class="text-center">Dosen   : Muhammad Fadli Prathama, S.SI., M.MSI</p>
+                <p class="text-center">No PC   : 04</p>
+                <div class="text-center">
+                    <p>Asisten:</p>
+                    <ul class="list-unstyled">
+                        <li>Davina Najwa Ermawan</li>
+                        <li>Abdur Rasyid Ridho</li>
+                        <li>Sakura Amastasya Salsabila Setiyanto</li>
+                        <li>Viana Salsabila Fairuz Syahla</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div id="content1" class="d-none">
+                <h3>1. Penjelasan Konsep Dasar PHP</h3>
+                <p><strong>a. Jelaskan apa itu PHP!</strong></p>
+                <p>PHP (Hypertext Preprocessor) adalah bahasa pemrograman server-side yang digunakan untuk mengembangkan aplikasi berbasis web...</p>
+                <p><strong>b. Sebutkan keunggulan PHP dibandingkan dengan bahasa pemrograman lainnya!</strong></p>
+                <ul>
+                    <li>Open Source</li>
+                    <li>Kompatibilitas yang Luas</li>
+                    <li>Dukungan Basis Data yang Luas</li>
+                    <li>Kemudahan Belajar</li>
+                    <li>Kinerja Cepat</li>
+                </ul>
+            </div>
+            <div id="content2" class="d-none">
+                <h3>2. Perbandingan GET dan POST</h3>
+                <p><strong>a. Jelaskan perbedaan antara metode GET dan POST!</strong></p>
+                <p>GET: Data dikirimkan melalui URL sehingga terlihat oleh pengguna...</p>
+                <p>POST: Data dikirimkan melalui body HTTP sehingga lebih aman dibanding GET...</p>
+                <p><strong>b. Contoh kasus penggunaan:</strong></p>
+                <ul>
+                    <li><strong>GET:</strong> Pencarian produk pada situs e-commerce.</li>
+                    <li><strong>POST:</strong> Formulir login atau pendaftaran.</li>
+                </ul>
+            </div>
+            <div id="content3" class="d-none">
+                <h3>3. Penggunaan include, require, dan koneksi PHP dengan MySQL</h3>
+                <p><strong>a. Jelaskan fungsi include dan require!</strong></p>
+                <p>Include: Memasukkan file eksternal ke dalam skrip PHP...</p>
+                <p>Require: Sama dengan include, tetapi eksekusi program akan dihentikan jika file tidak ditemukan...</p>
+                <p><strong>b. Contoh koneksi PHP dengan MySQL:</strong></p>
+                <pre>
+&lt;?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "exampleDB";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+echo "Koneksi berhasil";
+?>
+                </pre>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        function showContent(id) {
+            document.querySelectorAll('.content > div').forEach(div => {
+                div.classList.add('d-none');
+            });
+            document.getElementById(id).classList.remove('d-none');
+        }
+    </script>
+</body>
+
+</html>
